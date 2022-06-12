@@ -1,7 +1,7 @@
 const express = require('express');
 const  router  = express.Router()
 const   { Users , Profile}   = require('../models')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const {sign} = require ('jsonwebtoken')
 const {AuthMiddleware} = require ('../middleware/AuthToken')
 const Multer = require ('../middleware/Multer')
