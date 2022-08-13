@@ -66,7 +66,7 @@ router.post('/profile',AuthMiddleware,Multer, async (req,res) => {
     try {
         // const userId = req.params.userid
         const userinfo = {
-           image : `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
+           image : req.file.path,
             bio : req.body.bio
         }
        
