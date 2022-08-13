@@ -42,6 +42,7 @@ router.post('/login', async (req,res)=> {
 
 router.get('/auth', AuthMiddleware, async (req,res) => {
     res.json(req.user)
+   
 })
 
 router.get('/userinfo/:id', async (req,res) => {

@@ -37,7 +37,8 @@ router.post("/",AuthMiddleware,Multer, async (req,res)=> {
     }
   
         if (req.file){
-        PostBody.image = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
+            PostBody.image = req.file.path
+        // PostBody.image = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
             }
      const post = await Posts.create(PostBody)
      res.json(post)  
@@ -73,7 +74,7 @@ router.put("/byId/:id",Multer, async (req,res)=> {
     try {
     //    const PostBody = req.body;
     const PostBody = {
-        image : `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
+        image : req.file.path,
         title : req.body.title,
         postText : req.body.postText
     }
